@@ -1,8 +1,3 @@
-
-
-## 📦 requirements.txt (под твой код)
-
-```txt
 flask
 pandas
 numpy
