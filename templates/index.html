@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Linear Regression</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+    }
+
+
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .box {
+      border: 1px solid black;
+      padding: 15px;
+      width: 45%;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: auto;
+    }
+
+    td,
+    th {
+      border: 1px solid black;
+      padding: 5px;
+    }
+
+    input {
+      margin: 5px;
+      padding: 6px;
+    }
+
+    button {
+      padding: 10px;
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Linear Regression</h1>
+    <h2>Student Performance Prediction</h2>
+
+    <div class="row">
+      <div class="box">
+        <h3>Train Graph</h3>
+        <img src="/static/graph.png" width="600">
+      </div>
+
+      <div class="box">
+        <h3>10 Samples</h3>
+        <table>
+          <tr>
+            {% for col in sample_columns %}
+            <th>{{ col }}</th>
+            {% endfor %}
+          </tr>
+          {% for row in samples %}
+          <tr>
+            {% for col in row %}
+            <td>{{ col }}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+
+    <h3>10 Final DF (без Performance Index)</h3>
+    <table>
+      <tr>
+        {% for col in final_columns %}
+        <th>{{ col }}</th>
+        {% endfor %}
+      </tr>
+      {% for row in final_df %}
+      <tr>
+        {% for col in row %}
+        <td>{{ col }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+
+    <h3>Mean Absolute Error: {{ mae }}</h3>
+    <h3>R2 Score: {{ r2 }}</h3>
+
+    <h2>Enter Student Data</h2>
+    <form action="/predict" method="post">
+      <input type="number" step="any" name="hours" placeholder="Hours studied" required>
+      <input type="number" step="any" name="previous" placeholder="Previous score" required>
+      <input type="number" step="any" name="sleep" placeholder="Sleep hours" required>
+      <input type="number" step="any" name="papers" placeholder="Practice papers" required>
+      <select name="extra">
+        <option value="1">Extra activities YES</option>
+        <option value="0">Extra activities NO</option>
+      </select>
+      <br>
+      <button type="submit">Predict</button>
+    </form>
+
+    <h2>Result: {{ result }}</h2>
+  </div>
+</body>
+
+</html>
