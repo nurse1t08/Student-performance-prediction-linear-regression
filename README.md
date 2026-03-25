@@ -48,32 +48,40 @@ README.md/
 git clone https://github.com/nurse1t08/Student-performance-prediction-linear-regression.git
 ```bash
 cd Student-performance-prediction-linear-regression
+---
 ### 2. Создать виртуальное окружение
 ```bash
 python -m venv .venv
 ```bash
 source .venv/bin/activate
+---
 ### 3. Установить зависимости
 ```bash
 pip install -r requirements.txt
+---
 ### 4. Запустить приложение
 ```bash
 python app.py
+---
 ### 5. Открыть в браузере
 ```bash
 http://127.0.0.1:5000
+---
  ### Использование
 Пользователь вводит данные через веб-интерфейс, после чего система:
 обрабатывает входные данные
 передаёт их в модель
 выводит прогноз успеваемости
 Также отображается график для визуализации результатов.
+---
 ### Метрики модели
 Для оценки качества модели используются:
 Mean Absolute Error (MAE)
 R² Score
+---
 ### Примечание
 В процессе работы могут появляться предупреждения, связанные с библиотекой Scikit-learn.
 Это не влияет на корректность работы приложения.
+---
 ### Автор
 Нурсейт Халилов
